@@ -24,15 +24,19 @@ def on_receive_data():
     if not result:
         result = "error"
 
-    return {"result": "OK"}
+    return {"output_path": result}
 
 def process_data(msg):
     data = msg
-    print(data["dataType"])
+    print(data)
     save_path = ""
-    if data["dataType"] == "Images":
-        path = data["dataPath"]
-        save_path = parse_data(path)
+    if data["fileType"] == "IMG_DIR" and data["imageType"] == "JPG":
+        input_path = data["filePath"]
+        output_path = data['outputPath']
+        if output_path:
+            save_path = parse_data(input_path, output_path)
+        else:
+            save_path = parse_data(input_path)
     return save_path
 
 if __name__ == '__main__':
