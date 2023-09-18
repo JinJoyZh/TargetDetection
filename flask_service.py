@@ -20,6 +20,7 @@ def on_receive_data():
         try:
             result = process_data(msg)
         except Exception as e:
+            print(e)
             return jsonify({'error': '处理数据失败'}), 666
     if not result:
         result = "error"
