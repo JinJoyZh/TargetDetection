@@ -192,5 +192,5 @@ def SDCP(source):
 if __name__ == '__main__':
     input_path = 'C:/Users/jin_j/Desktop/defog_1.jpg'
     output_path = 'C:/Users/jin_j/Desktop/tmp.jpg'
-    SDCP(input_path, output_path)
+    # SDCP(input_path, output_path)
     
